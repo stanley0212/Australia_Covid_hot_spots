@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/bottomSheetContainer"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tips"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="15dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="#f3f3f3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_location_red"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tier 1 - Get tested immediately and quarantine for 14 days from exposure"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_location_yellow"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tier 2 - Get tested urgently and isolate until you have a negative result"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_location_blue"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tier 3 - Monitor for symptoms"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="#f3f3f3"/>
+
+    <!--            <TextView-->
+    <!--                android:padding="8dp"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:id="@+id/travel_rule"/>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Vaccine:"/>
+
+                <Button
+                    android:id="@+id/total_vaccine"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@+id/total"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:text="23,000,000"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+
+                <TextView
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last update: 2021-07-22"
+                    android:textSize="12sp"
+                    android:layout_toRightOf="@+id/total_vaccine"
+                    android:layout_marginLeft="60dp"/>
+
+            </RelativeLayout>
+
+                <RelativeLayout
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btn_vic"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:text="VIC"
+                        android:textColor="@android:color/black"
+                        android:background="@drawable/button_background"/>
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/vic_local"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/btn_vic"
+                        android:text="Local case: 0"/>
+                    <TextView
+                        android:id="@+id/vic_overseas_case"
+                        android:layout_marginTop="4dp"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/vic_local"
+                        android:text="Overseas case: 0"/>
+                    <ImageView
+                        android:layout_marginLeft="60dp"
+                        android:layout_toRightOf="@+id/vic_overseas_case"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/rule"/>
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_tas"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="TAS"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tas_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_tas"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/tas_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tas_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/tas_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_nsw"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="NSW"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/nsw_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_nsw"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/nsw_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/nsw_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/nsw_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_qld"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="QLD"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/qld_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_qld"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/qld_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/qld_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/qld_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_act"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="ACT"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/act_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_act"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/act_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/act_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/act_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_sa"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="SA"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/sa_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_sa"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/sa_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/sa_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/sa_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_wa"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="WA"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/wa_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_wa"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/wa_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/wa_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/wa_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_nt"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="NT"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/nt_local"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_nt"
+                    android:text="Local case: 0"/>
+                <TextView
+                    android:id="@+id/nt_overseas_case"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/nt_local"
+                    android:text="Overseas case: 0"/>
+                <ImageView
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/nt_overseas_case"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/rule"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
