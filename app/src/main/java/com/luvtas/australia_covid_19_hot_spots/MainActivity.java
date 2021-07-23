@@ -76,12 +76,17 @@ import static java.security.AccessController.getContext;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private TextView map_title, map_info, map_start_date, map_end_date, map_location, map_address;
+    private TextView map_title, map_info, map_start_date, map_end_date, map_location, map_address,update,vic_local,vic_overseas_case,tas_local,tas_overseas_case,nsw_local,nsw_overseas_case;
+    private TextView qld_local,qld_overseas_case,act_local,act_overseas_case,sa_local,sa_overseas_case,wa_local,wa_overseas_case,nt_local,nt_overseas_case,total_vaccine,start_date;
     private String MapLat,MapLng,MapTitle,MapInfo,MapPhoto,MapStartTime,MapEndTime,MapSmallPhoto,MapAddress,MapUserEmail,MAP_ID;
+    private String txt_vic_local,txt_vic_overseas_case,txt_tas_local,txt_tas_overseas_case,txt_nsw_local,txt_nsw_overseas_case,txt_qld_local,txt_qld_overseas_case;
+    private String txt_act_local,txt_act_overseas_case,txt_sa_local,txt_sa_overseas_case,txt_wa_local,txt_wa_overseas_case,txt_nt_local,txt_nt_overseas_case,txt_total_vaccine,txt_start_date;
+    private String txt_vic_rule,txt_tas_rule,txt_nsw_rule,txt_qld_rule,txt_act_rule,txt_sa_rule,txt_wa_rule,txt_nt_rule;
+    private LinearLayout travel_rules;
     int MapType;
     public String rule;
     private Marker marker;
-    ImageView map_img;
+    private ImageView map_img,vic_rule,tas_rule,nsw_rule,qld_rule,act_rule,sa_rule,wa_rule,nt_rule;
     private static final String URL_MAPSHOW = "https://luvtas.com/ifunpot_app/map_show_covid.php";
     private ArrayList<MapShow> mapShowArrayList = new ArrayList<>();
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private int requestCount = 1;
     PlacesClient placesClient;
     private RequestQueue requestQueue;
-    Button tips;
+    private Button tips;
     public SupportMapFragment mapFragment;
     private AnimationDrawable anim;
 
@@ -128,8 +133,63 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 TravelRuleModel travelRuleModel = new TravelRuleModel();
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this, R.style.BottomSheetDialogTheme);
                 View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.tips, (LinearLayout)findViewById(R.id.bottomSheetContainer));
-//                travel_rule = bottomSheetView.findViewById(R.id.travel_rule);
-//                travel_rule.setText(rule);
+                update = bottomSheetView.findViewById(R.id.update);
+                travel_rules = bottomSheetView.findViewById(R.id.travel_rules);
+                vic_local = bottomSheetView.findViewById(R.id.vic_local);
+                vic_overseas_case = bottomSheetView.findViewById(R.id.vic_overseas_case);
+                tas_local = bottomSheetView.findViewById(R.id.tas_local);
+                tas_overseas_case = bottomSheetView.findViewById(R.id.tas_overseas_case);
+                nsw_local = bottomSheetView.findViewById(R.id.nsw_local);
+                nsw_overseas_case = bottomSheetView.findViewById(R.id.nsw_overseas_case);
+                qld_local = bottomSheetView.findViewById(R.id.qld_local);
+                qld_overseas_case = bottomSheetView.findViewById(R.id.qld_overseas_case);
+                act_local = bottomSheetView.findViewById(R.id.act_local);
+                act_overseas_case = bottomSheetView.findViewById(R.id.act_overseas_case);
+                sa_local = bottomSheetView.findViewById(R.id.sa_local);
+                sa_overseas_case = bottomSheetView.findViewById(R.id.sa_overseas_case);
+                wa_local = bottomSheetView.findViewById(R.id.wa_local);
+                wa_overseas_case = bottomSheetView.findViewById(R.id.wa_overseas_case);
+                nt_local = bottomSheetView.findViewById(R.id.nt_local);
+                nt_overseas_case = bottomSheetView.findViewById(R.id.nt_overseas_case);
+                total_vaccine = bottomSheetView.findViewById(R.id.total_vaccine);
+                start_date = bottomSheetView.findViewById(R.id.update);
+
+                vic_local.setText("Local case: " +txt_vic_local);
+                vic_overseas_case.setText("Overseas case: " +txt_vic_overseas_case);
+                tas_local.setText("Local case: " +txt_tas_local);
+                tas_overseas_case.setText("Overseas case: " +txt_tas_overseas_case);
+                nsw_local.setText("Local case: " +txt_nsw_local);
+                nsw_overseas_case.setText("Overseas case: " +txt_nsw_overseas_case);
+                qld_local.setText("Local case: " +txt_qld_local);
+                qld_overseas_case.setText("Overseas case: " +txt_qld_overseas_case);
+                act_local.setText("Local case: " +txt_act_local);
+                act_overseas_case.setText("Overseas case: " +txt_act_overseas_case);
+                sa_local.setText("Local case: " +txt_sa_local);
+                sa_overseas_case.setText("Overseas case: " +txt_sa_overseas_case);
+                wa_local.setText("Local case: " +txt_wa_local);
+                wa_overseas_case.setText("Overseas case: " +txt_wa_overseas_case);
+                nt_local.setText("Local case: " +txt_nt_local);
+                nt_overseas_case.setText("Overseas case: " +txt_nt_overseas_case);
+                total_vaccine.setText(txt_total_vaccine);
+                start_date.setText("Last update: \n" + txt_start_date);
+
+                travel_rules.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, TravelRulesActivity.class);
+                        intent.putExtra("vic", txt_vic_rule);
+                        intent.putExtra("tas", txt_tas_rule);
+                        intent.putExtra("nsw", txt_nsw_rule);
+                        intent.putExtra("qld", txt_qld_rule);
+                        intent.putExtra("act", txt_act_rule);
+                        intent.putExtra("sa", txt_sa_rule);
+                        intent.putExtra("wa", txt_wa_rule);
+                        intent.putExtra("nt", txt_nt_rule);
+                        startActivity(intent);
+                    }
+                });
+
+
                 bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
             }
@@ -188,9 +248,86 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             JSONObject json = null;
             try {
                 json = array.getJSONObject(i);
-                String TAG_TravelRule = "TravelRule";
-                travelRuleModel.setTravelrule(json.getString(TAG_TravelRule));
-                rule = json.getString(TAG_TravelRule);
+                String TAG_VIC_Rule = "VIC_Rule";
+                String TAG_VIC_Local_case = "VIC_Local_case";
+                String TAG_VIC_Overseas_case = "VIC_Overseas_case";
+                String TAG_TAS_Rule = "TAS_Rule";
+                String TAG_TAS_Local_case = "TAS_Local_case";
+                String TAG_TAS_Overseas_case = "TAS_Overseas_case";
+                String TAG_NSW_Rule = "NSW_Rule";
+                String TAG_NSW_Local_case = "NSW_Local_case";
+                String TAG_NSW_Overseas_case = "NSW_Overseas_case";
+                String TAG_QLD_Rule = "QLD_Rule";
+                String TAG_QLD_Local_case = "QLD_Local_case";
+                String TAG_QLD_Overseas_case = "QLD_Overseas_case";
+                String TAG_ACT_Rule = "ACT_Rule";
+                String TAG_ACT_Local_case = "ACT_Local_case";
+                String TAG_ACT_Overseas_case = "ACT_Overseas_case";
+                String TAG_SA_Rule = "SA_Rule";
+                String TAG_SA_Local_case = "SA_Local_case";
+                String TAG_SA_Overseas_case = "SA_Overseas_case";
+                String TAG_WA_Rule = "WA_Rule";
+                String TAG_WA_Local_case = "WA_Local_case";
+                String TAG_WA_Overseas_case = "WA_Overseas_case";
+                String TAG_NT_Rule = "NT_Rule";
+                String TAG_NT_Local_case = "NT_Local_case";
+                String TAG_NT_Overseas_case = "NT_Overseas_case";
+                String TAG_TotalVaccine = "TotalVaccine";
+                String TAG_StartDate = "StartDate";
+
+                travelRuleModel.setVIC_Rule(json.getString(TAG_VIC_Rule));
+                travelRuleModel.setVIC_Local_case(json.getString(TAG_VIC_Local_case));
+                travelRuleModel.setVIC_Overseas_case(json.getString(TAG_VIC_Overseas_case));
+                travelRuleModel.setTAS_Rule(json.getString(TAG_TAS_Rule));
+                travelRuleModel.setTAS_Local_case(json.getString(TAG_TAS_Local_case));
+                travelRuleModel.setTAS_Overseas_case(json.getString(TAG_TAS_Overseas_case));
+                travelRuleModel.setNSW_Rule(json.getString(TAG_NSW_Rule));
+                travelRuleModel.setNSW_Local_case(json.getString(TAG_NSW_Local_case));
+                travelRuleModel.setNSW_Overseas_case(json.getString(TAG_NSW_Overseas_case));
+                travelRuleModel.setQLD_Rule(json.getString(TAG_QLD_Rule));
+                travelRuleModel.setQLD_Local_case(json.getString(TAG_QLD_Local_case));
+                travelRuleModel.setQLD_Overseas_case(json.getString(TAG_QLD_Overseas_case));
+                travelRuleModel.setACT_Rule(json.getString(TAG_ACT_Rule));
+                travelRuleModel.setACT_Local_case(json.getString(TAG_ACT_Local_case));
+                travelRuleModel.setACT_Overseas_case(json.getString(TAG_ACT_Overseas_case));
+                travelRuleModel.setSA_Rule(json.getString(TAG_SA_Rule));
+                travelRuleModel.setSA_Local_case(json.getString(TAG_SA_Local_case));
+                travelRuleModel.setSA_Overseas_case(json.getString(TAG_SA_Overseas_case));
+                travelRuleModel.setWA_Rule(json.getString(TAG_WA_Rule));
+                travelRuleModel.setWA_Local_case(json.getString(TAG_WA_Local_case));
+                travelRuleModel.setWA_Overseas_case(json.getString(TAG_WA_Overseas_case));
+                travelRuleModel.setNT_Rule(json.getString(TAG_NT_Rule));
+                travelRuleModel.setNT_Local_case(json.getString(TAG_NT_Local_case));
+                travelRuleModel.setNT_Overseas_case(json.getString(TAG_NT_Overseas_case));
+                travelRuleModel.setTotalVaccine(json.getString(TAG_TotalVaccine));
+                travelRuleModel.setStartDate(json.getString(TAG_StartDate));
+
+                txt_vic_rule = json.getString(TAG_VIC_Rule);
+                txt_vic_local = json.getString(TAG_VIC_Local_case);
+                txt_vic_overseas_case = json.getString(TAG_VIC_Overseas_case);
+                txt_tas_rule = json.getString(TAG_TAS_Rule);
+                txt_tas_local = json.getString(TAG_TAS_Local_case);
+                txt_tas_overseas_case = json.getString(TAG_TAS_Overseas_case);
+                txt_nsw_rule = json.getString(TAG_NSW_Rule);
+                txt_nsw_local = json.getString(TAG_NSW_Local_case);
+                txt_nsw_overseas_case = json.getString(TAG_NSW_Overseas_case);
+                txt_qld_rule = json.getString(TAG_QLD_Rule);
+                txt_qld_local = json.getString(TAG_QLD_Local_case);
+                txt_qld_overseas_case = json.getString(TAG_QLD_Overseas_case);
+                txt_act_rule = json.getString(TAG_ACT_Rule);
+                txt_act_local = json.getString(TAG_ACT_Local_case);
+                txt_act_overseas_case = json.getString(TAG_ACT_Overseas_case);
+                txt_sa_rule = json.getString(TAG_SA_Rule);
+                txt_sa_local = json.getString(TAG_SA_Local_case);
+                txt_sa_overseas_case = json.getString(TAG_SA_Overseas_case);
+                txt_wa_rule = json.getString(TAG_WA_Rule);
+                txt_wa_local = json.getString(TAG_WA_Local_case);
+                txt_wa_overseas_case = json.getString(TAG_WA_Overseas_case);
+                txt_nt_rule = json.getString(TAG_NT_Rule);
+                txt_nt_local = json.getString(TAG_NT_Local_case);
+                txt_nt_overseas_case = json.getString(TAG_NT_Overseas_case);
+                txt_total_vaccine = json.getString(TAG_TotalVaccine);
+                txt_start_date = json.getString(TAG_StartDate);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

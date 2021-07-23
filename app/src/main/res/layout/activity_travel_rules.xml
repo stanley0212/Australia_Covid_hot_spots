@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TravelRulesActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/preview"
+                android:background="#ffffff"
+                android:src="@drawable/ic_navigate_before_black_24dp"
+                android:layout_width="40dp"
+                android:layout_height="?attr/actionBarSize"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:fontFamily="@font/deathstar"
+                android:background="#ffffff"
+                app:titleTextColor="#007FFF"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+                android:theme="@style/ToolbarTheme"
+                app:titleTextAppearance="@style/Toolbar.TitleText"
+                app:title="Travel Rules">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </LinearLayout>
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--        <LinearLayout-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/preview"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/ic_navigate_before_black_24dp"/>-->
+
+<!--            <TextView-->
+<!--                android:gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Travel Rules"-->
+<!--                android:fontFamily="@font/deathstar"-->
+<!--                android:textColor="#1E90FF"-->
+<!--                android:textSize="24sp"-->
+<!--                android:padding="4dp"/>-->
+
+<!--        </LinearLayout>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_vic"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="VIC"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/vic_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_vic"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_tas"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="TAS"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/tas_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_tas"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_nsw"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="NSW"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/nsw_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_nsw"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_qld"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="QLD"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/qld_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_qld"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_act"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="ACT"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/act_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_act"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_sa"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="SA"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/sa_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_sa"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_wa"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="WA"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/wa_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_wa"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_nt"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:text="NT"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/button_background"/>
+                <TextView
+                    android:autoLink="all"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/nt_rule"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_nt"
+                    android:text="Travel rules: "/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
