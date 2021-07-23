@@ -32,10 +32,10 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3180077679928430~4049696155" />
+            android:value=" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAF2FpEl2tYHABFuUFKa5XDa5c2Q_1yj0k" />
+            android:value="" />
     </application>
 
 </manifest>
