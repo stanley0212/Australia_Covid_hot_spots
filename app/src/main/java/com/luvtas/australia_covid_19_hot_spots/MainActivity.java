@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public String rule;
     private Marker marker;
     private ImageView map_img,vic_rule,tas_rule,nsw_rule,qld_rule,act_rule,sa_rule,wa_rule,nt_rule;
-    private static final String URL_MAPSHOW = "https://luvtas.com/ifunpot_app/map_show_covid.php";
+    private static final String URL_MAPSHOW = "https://";
     private ArrayList<MapShow> mapShowArrayList = new ArrayList<>();
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        String apikey ="AIzaSyAF2FpEl2tYHABFuUFKa5XDa5c2Q_1yj0k";
+        String apikey ="";
         if(!Places.isInitialized()){
             Places.initialize(this, apikey);
         }
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Load...");
 
-        final String DATA_URL = "https://luvtas.com/ifunpot_app/travel.php";
+        final String DATA_URL = "https://";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(DATA_URL,
                 new Response.Listener<JSONArray>() {
                     @Override
